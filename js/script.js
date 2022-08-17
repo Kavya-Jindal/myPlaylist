@@ -23,6 +23,21 @@ const songs = [
     title: " Photograph",
     artist: "Ed sheeran",
   },
+  {
+    name: "permissionToDance",
+    title: " Permission To Dance",
+    artist: "BTS",
+  },
+  {
+    name: "borders",
+    title: "Borders",
+    artist: "M.I.A",
+  },
+  {
+    name: "crooked",
+    title: "Crooked",
+    artist: "g dragon",
+  },
 ];
 let isPlaying = false;
 const playMusic = () => {
