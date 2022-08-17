@@ -90,7 +90,7 @@ margin-top: 5rem;
     box-shadow: 0 1rem 2rem 0.2rem rgba(0,0,0,0.4);
 }
 .anime{
-    animation: rotatePlayer 3s linear infinite ;
+    animation: rotatePlayer 2s linear infinite ;
 }
 @keyframes rotatePlayer{
     from{transform: rotate(0deg);}
