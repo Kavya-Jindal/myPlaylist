@@ -68,14 +68,15 @@ const loadSong = (songs) => {
   img.src = "images/" + songs.name + ".jpg";
 };
 i = 0;
-
 const nextSong = () => {
   i = (i + 1) % songs.length;
   loadSong(songs[i]);
+  playMusic();
 };
 const previousSong = () => {
   i = (i - 1 + songs.length) % songs.length;
   loadSong(songs[i]);
+  playMusic();
 };
 next.addEventListener("click", nextSong);
 previous.addEventListener("click", previousSong);
