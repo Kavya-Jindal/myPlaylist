@@ -78,5 +78,12 @@ const previousSong = () => {
   loadSong(songs[i]);
   playMusic();
 };
+// progress work
+music.addEventListener('timeupdate',(event)=>{
+  // console.log(event);
+const {currentTime,duration}=event.srcElement;
+console.log(currentTime);
+console.log(duration);
+});
 next.addEventListener("click", nextSong);
 previous.addEventListener("click", previousSong);
