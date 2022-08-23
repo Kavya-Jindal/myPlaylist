@@ -6,6 +6,9 @@ const artist = document.getElementById("artist");
 const title = document.getElementById("title");
 const previous = document.getElementById("previous");
 const next = document.getElementById("next");
+let progress=document.getElementById("progress");
+let totalDuration=document.getElementById("duration");
+let currentTime=document.getElementById("currentTime");
 
 const songs = [
   {
@@ -79,11 +82,20 @@ const previousSong = () => {
   playMusic();
 };
 // progress work
-music.addEventListener('timeupdate',(event)=>{
-  // console.log(event);
-const {currentTime,duration}=event.srcElement;
-console.log(currentTime);
+music.addEventListener("timeupdate",(event)=>{
+  const {currentTime,duration}=event.target;
+  let progressTime=(currentTime/duration)*100;
+  progress.style.width= `${progressTime}%`;
+// music duration update
 console.log(duration);
-});
+let minDuration=Math.floor(duration / 60);
+let secDuration=Math.floor(duration % 60);
+let totDuration=`${minDuration}:${secDuration}`;
+
+totalDuration.textContent=`${totDuration}`;
+
+})
 next.addEventListener("click", nextSong);
 previous.addEventListener("click", previousSong);
+
+
