@@ -47,6 +47,7 @@ html{
     width: 25rem;
     height: 25rem;
     margin: auto;
+    /* box-shadow: 0 1.2rem 3rem 0.5rem rgba(0,0,0,0.4); */
 }
 img{
     width: 100%;

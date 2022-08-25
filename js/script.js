@@ -7,14 +7,15 @@ const title = document.getElementById("title");
 const previous = document.getElementById("previous");
 const next = document.getElementById("next");
 let progress=document.getElementById("progress");
-let totalDuration=document.getElementById("duration");
-let currentTime=document.getElementById("currentTime");
+let total_duration=document.getElementById("duration");
+let current_time=document.getElementById("current_time");
+const progressDiv=document.getElementById("progressDiv");
 
 const songs = [
   {
     name: "prettySavage",
     title: " Pretty Savage",
-    artist: "blackpink",
+    artist: "Blackpink",
   },
   {
     name: "believer",
@@ -87,14 +88,39 @@ music.addEventListener("timeupdate",(event)=>{
   let progressTime=(currentTime/duration)*100;
   progress.style.width= `${progressTime}%`;
 // music duration update
-console.log(duration);
-let minDuration=Math.floor(duration / 60);
-let secDuration=Math.floor(duration % 60);
-let totDuration=`${minDuration}:${secDuration}`;
 
-totalDuration.textContent=`${totDuration}`;
+let min_duration=Math.floor(duration / 60);
+let sec_duration=Math.floor(duration % 60);
+let tot_duration=`${min_duration}:${sec_duration}`;
+if(duration){
+  total_duration.textContent=`${tot_duration}`;
+}
+//current time duration
+let min_currentTime=Math.floor(currentTime / 60);
+let sec_currentTime=Math.floor(currentTime % 60);
 
-})
+if(sec_currentTime<10){
+  sec_currentTime=`0${sec_currentTime}`;
+ 
+
+}
+let tot_currentTime=`${min_currentTime}:${sec_currentTime}`;
+  current_time.textContent=`${tot_currentTime}`;
+
+});
+
+progressDiv.addEventListener('click',(event)=>{
+  console.log(event);
+  const {duration}=music;
+  
+  let move_progress=(event.offsetX/event.target.clientWidth)*duration;
+  console.log(duration);
+  console.log(move_progress);
+
+  music.currentTime=move_progress
+});
+
+music.addEventListener('ended',nextSong);
 next.addEventListener("click", nextSong);
 previous.addEventListener("click", previousSong);
 
